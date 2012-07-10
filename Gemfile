@@ -25,5 +25,8 @@ gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 group :development, :test do
-  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'autotest-rails'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
 end
