@@ -1,6 +1,11 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :username
+  has_secure_password
+
+  attr_accessible :name, :username, :password
+  
+  validates_presence_of :password, on: :create
   validates :name, :username, presence: true
+  validates :username, uniqueness: true
   has_many :ratings
   has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" }
 end
