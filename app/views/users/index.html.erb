@@ -1,0 +1,27 @@
+<h1>Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Ratings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td>
+          <%= link_to user do %>
+            <%= image_tag user.picture(:thumb) if user.picture %><br />
+            <%= user.name %>
+          <% end %>
+        </td>
+        <td>
+          <%= user.ratings.count %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @users %>
