@@ -8,19 +8,41 @@
 </head>
 <body>
 
-<% if flash[:notice] %>
-  <div class="alert alert-success">
-    <%= flash[:notice] %>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="#">Foraker Band Camp</a>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li<% if controller.controller_name == 'users' %> class="active"<% end %>><%= link_to 'People', users_path %></li>
+          <li<% if controller.controller_name == 'bands' %> class="active"<% end %>><%= link_to 'Bands', bands_path %></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
   </div>
-<% end %>
+</div>
 
-<% if flash[:error] %>
-  <div class="alert alert-error">
-    <%= flash[:error] %>
-  </div>
-<% end %>
+<div class="container">
 
-<%= yield %>
+  <% if flash[:notice] %>
+    <div class="alert alert-success">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
 
+  <% if flash[:error] %>
+    <div class="alert alert-error">
+      <%= flash[:error] %>
+    </div>
+  <% end %>
+
+  <%= yield %>
+
+</div>
 </body>
 </html>
