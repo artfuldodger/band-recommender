@@ -1,14 +1,14 @@
-<h1>Users</h1>
+<h1 class="pull-left">Users</h1>
 
 <div class="create">
   <%= link_to 'Create a New User', new_user_path, class: 'btn btn-primary' %>
 </div>
 
-<table>
+<table class="table users">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Ratings</th>
+      <th> </th>
+      <th class="num">Ratings</th>
       <th> </th>
     </tr>
   </thead>
@@ -17,7 +17,7 @@
       <tr>
         <td>
           <%= link_to user do %>
-            <%= image_tag user.picture(:thumb) if user.picture %><br />
+            <%= image_tag user.picture(:thumb) if user.picture %>
             <%= user.name %>
           <% end %>
         </td>
