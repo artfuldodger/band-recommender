@@ -3,3 +3,9 @@
 <p>
   Username: <%= @user.username %>
 </p>
+
+<% if @user.picture.present? %>
+  <div id="profile-picture">
+    <%= image_tag @user.picture(:medium) %>
+  </div>
+<% end %>

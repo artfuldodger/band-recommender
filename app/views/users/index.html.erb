@@ -9,6 +9,7 @@
     <tr>
       <th>Name</th>
       <th>Ratings</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -20,8 +21,11 @@
             <%= user.name %>
           <% end %>
         </td>
-        <td>
+        <td class="num">
           <%= user.ratings.count %>
+        </td>
+        <td>
+          <%= link_to 'Edit', edit_user_path(user) %>
         </td>
       </tr>
     <% end %>
