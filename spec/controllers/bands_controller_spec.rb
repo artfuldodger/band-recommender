@@ -40,6 +40,17 @@ describe BandsController do
       get :index, {}, valid_session
       assigns(:bands).should eq([band])
     end
+
+    it 'orders them by name' do
+      Band.should_receive(:order).with(:name).and_return(Band)
+      get 'index'
+    end
+
+    it 'paginates the list of bands' do
+      Band.stub(order: Band)
+      Band.should_receive(:paginate)
+      get 'index'
+    end
   end
 
   describe "GET show" do

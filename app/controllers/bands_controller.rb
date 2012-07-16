@@ -2,7 +2,7 @@ class BandsController < ApplicationController
   # GET /bands
   # GET /bands.json
   def index
-    @bands = Band.all
+    @bands = Band.order(:name).paginate(page: params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
