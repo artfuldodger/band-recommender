@@ -16,11 +16,9 @@
 <div style="width: 65%; float: left; border-left: 1px solid black; padding-left: 20px; ">
   <h2>Recommendations</h2>
   <ul>
-    <li>One</li>
-    <li>Two</li>
-    <li>Three</li>
-    <li>Four</li>
-    <li>Five</li>
+    <% @recommendations.each do |band, score| %>
+      <li><%= link_to band.name, band %> - <strong><%= score %></strong></li>
+    <% end %>
   </ul>
 </div>
 
