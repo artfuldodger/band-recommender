@@ -890,11 +890,12 @@ bands.each do |band_name|
   band.save
 end
 
-puts "Initializing 100 random ratings for each user"
+puts "Initializing 100-ish random ratings for each user"
 unless Rating.any?
   User.all.each do |user|
     100.times do
       band = Band.find(rand(Band.count)+1)
+      next if user.ratings.where(band_id: band.id).exists?
       user.ratings.create(band: band, score: (rand(5)+1))
     end
   end
