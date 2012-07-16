@@ -5,7 +5,9 @@ class UsersController < ApplicationController
     @users = User.order(:name).paginate(page: params[:page])
   end
 
-  def show; end
+  def show
+    @ratings = @user.ratings.paginate(page: params[:ratings_page])
+  end
 
   def new
     @user = User.new

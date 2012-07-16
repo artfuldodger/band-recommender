@@ -23,3 +23,15 @@
     <li>Five</li>
   </ul>
 </div>
+
+<hr style="clear: both" />
+
+<div class="user-ratings">
+  <h2>Ratings (<%= @user.ratings.count %>)</h2>
+  <ul>
+    <% @ratings.each do |rating| %>
+      <li><%= link_to rating.band.name, rating.band %> - <strong><%= rating.score %></strong></li>
+    <% end %>
+  </ul>
+  <%= will_paginate @ratings, param_name: 'ratings_page' %>
+</div>

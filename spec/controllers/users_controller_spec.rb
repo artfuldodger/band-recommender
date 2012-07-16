@@ -27,6 +27,12 @@ describe UsersController do
       get 'show', id: user.id
       assigns(:user).should == user
     end
+
+    it "assigns the user's ratings to @ratings" do
+      ratings = [FactoryGirl.create(:rating, user: user), FactoryGirl.create(:rating, user: user)]
+      get 'show', id: user.id
+      assigns(:ratings).should =~ ratings
+    end
   end
 
   describe "GET 'new'" do
