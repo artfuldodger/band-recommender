@@ -15,9 +15,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: foraker-band-camp_development
+  database: band-recommender_development
   pool: 5
-  username: foraker-band-camp
+  username: band-recommender
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -41,15 +41,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: foraker-band-camp_test
+  database: band-recommender_test
   pool: 5
-  username: foraker-band-camp
+  username: band-recommender
   password:
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: foraker-band-camp_production
+  database: band-recommender_production
   pool: 5
-  username: foraker-band-camp
+  username: band-recommender
   password:

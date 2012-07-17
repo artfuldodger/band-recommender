@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-ForakerBandCamp::Application.load_tasks
+BandRecommender::Application.load_tasks
