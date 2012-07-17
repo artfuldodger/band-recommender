@@ -19,7 +19,7 @@ class Recommender
     # Return the normalized list
     rankings = {}
     totals.each { |band, total| rankings[band] = (total / similarity_sums[band]) }
-    rankings.sort_by { |band, score| -score }
+    rankings.sort_by { |band, score| -score }[0..20]
   end
 
   private
