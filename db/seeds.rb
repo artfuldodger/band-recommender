@@ -1185,7 +1185,7 @@ bands.each do |band_name|
   band.save
 end
 
-number_ratings_to_seed = use_clean_band_names ? 50 : 100
+number_ratings_to_seed = use_clean_band_names ? 30 : 100
 puts "Initializing #{number_ratings_to_seed}-ish random ratings for each user"
 unless Rating.any?
   User.all.each do |user|
