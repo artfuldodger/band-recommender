@@ -16,7 +16,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="#">Band Recommender</a>
+      <%= link_to 'Band Recommender', root_path, class: 'brand' %>
       <div class="nav-collapse">
         <ul class="nav">
           <li<% if controller.controller_name == 'users' %> class="active"<% end %>><%= link_to 'People', users_path %></li>
