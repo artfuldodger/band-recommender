@@ -14,6 +14,7 @@ class BandsController < ApplicationController
   # GET /bands/1.json
   def show
     @band = Band.find(params[:id])
+    @ratings = @band.ratings.joins(:user).order('users.name')
 
     respond_to do |format|
       format.html # show.html.erb

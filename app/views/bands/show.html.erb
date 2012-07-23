@@ -5,7 +5,7 @@
 <h2>Ratings</h2>
 
 <ul>
-  <% @band.ratings.each do |rating| %>
+  <% @ratings.each do |rating| %>
     <li><%= link_to rating.user.name, rating.user %> - <strong><%= rating.score %></strong>
   <% end %>
 </ul>
