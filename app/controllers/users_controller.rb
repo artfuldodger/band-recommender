@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @ratings = @user.ratings.paginate(page: params[:ratings_page])
-    @recommendations = Recommender.new(@user).recommendations
+    @band_recommendations = Recommenders::Band.new(@user).recommendations
   end
 
   def new

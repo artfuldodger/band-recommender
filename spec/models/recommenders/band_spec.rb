@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Recommender do
+describe Recommenders::Band do
   let(:user) { FactoryGirl.create(:user) }
   let(:other_user) { FactoryGirl.create(:user) }
-  let(:recommender) { Recommender.new(user) }
+  let(:recommender) { Recommenders::Band.new(user) }
 
   describe '#rated_band_ids' do
     it 'returns all ids of the bands rated by the user' do

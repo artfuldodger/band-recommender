@@ -14,9 +14,9 @@
 </div>
 
 <div style="width: 65%; float: left; border-left: 1px solid black; padding-left: 20px; ">
-  <h2>Recommendations</h2>
+  <h2>Band Recommendations</h2>
   <ul>
-    <% @recommendations.each do |band, score| %>
+    <% @band_recommendations.each do |band, score| %>
       <li><%= link_to band.name, band %> - <strong><%= score %></strong></li>
     <% end %>
   </ul>

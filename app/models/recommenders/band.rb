@@ -1,5 +1,5 @@
 # Inspiration: Segaran, Toby (2008-12-17). Programming Collective Intelligence: Building Smart Web 2.0 Applications
-class Recommender
+class Recommenders::Band
 
   def initialize(user)
     @user = user
