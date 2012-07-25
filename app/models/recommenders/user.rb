@@ -8,7 +8,7 @@ class Recommenders::User
   def recommendations
     other_users = @user.all_other_users
     other_users.each { |other_user| other_user.similarity = @similarity_calculator.similarity(other_user) }
-    other_users.sort_by(&:similarity).reverse[0...20]
+    other_users.sort_by(&:similarity).reverse.first(20)
   end
 
 end
