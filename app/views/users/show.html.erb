@@ -13,17 +13,19 @@
   <% end %>
 </div>
 
-<div style="width: 40%; float: left; border-left: 1px solid black; padding-left: 20px; ">
-  <h2>Band Recommendations</h2>
-  <ul>
+<div id="recommendations-tabs">
+  <div class="tabs">
+    <ul>
+      <li id="band-recommendations-tab" class="active">Band Recommendations</li>
+      <li id="similar-users-tab">Similar Users</li>
+    </ul>
+  </div>
+  <ul id="band-recommendations" class="tab-contents">
     <% @band_recommendations.each do |band, score| %>
       <li><%= link_to band.name, band %> - <strong><%= score %></strong></li>
     <% end %>
   </ul>
-</div>
-<div style="width: 20%; float: left; border-left: 1px solid black; padding-left: 20px; ">
-  <h2>Similar Users</h2>
-  <ul>
+  <ul id="similar-users" style="display: none" class="tab-contents">
     <% @user_recommendations.each do |user| %>
       <li><%= link_to user.name, user %> - <strong><%= user.similarity %></strong></li>
     <% end %>
