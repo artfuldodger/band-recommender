@@ -6,7 +6,7 @@ describe Recommenders::User do
   let(:recommender) { Recommenders::User.new(user) }
   let!(:other_users) do
     users = []
-    30.times { users << FactoryGirl.create(:user) }
+    21.times { users << FactoryGirl.create(:user) }
     users
   end
 
@@ -16,11 +16,8 @@ describe Recommenders::User do
     end
 
     it 'returns them ordered by similarity descending' do
-      pending 'computer dying, no power'
-      other_users.each do |other_user|
-        SimilarityCalculators::EuclideanDistance.any_instance.stub(:similarity).with(other_user).and_return(other_user.id)
-      end
-      recommender.recommendations.should == other_users.last(20)
+      other_users.each { |other_user| other_user.stub(similarity: other_user.id) }
+      recommender.recommendations.should == other_users.sort_by(&:id).reverse.first(20)
     end
   end
 end
