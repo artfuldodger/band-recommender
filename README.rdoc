@@ -1,3 +1,5 @@
 == Band Recommender
 
 A simple application for experimenting with recommender algorithms.
+
+_Heavily_ influenced by: Segaran, Toby (2008-12-17). Programming Collective Intelligence: Building Smart Web 2.0 Applications
