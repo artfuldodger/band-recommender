@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :bands, through: :ratings
   has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" }
 
+  attr_accessor :similarity
+
   def all_other_users
     self.class.where('id != ?', id)
   end
