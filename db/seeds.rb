@@ -1,4 +1,5 @@
-use_clean_band_names = true
+USE_CLEAN_BAND_NAMES = true
+USERS_MULTIPLIER = 20
 
 users = %W{
   ben
@@ -19,15 +20,16 @@ users = %W{
   tom
 }
 
-puts "Creating #{users.count} users"
-users.each do |user|
-  next if User.find_by_username(user).present?
+puts "Creating #{users.count * USERS_MULTIPLIER} users"
+USERS_MULTIPLIER.times do |i|
+  users.each do |user|
+    next if User.find_by_username(user).present?
 
-  file_path = File.join(Rails.root, "db/seed_pictures", "#{user}.jpg")
-  User.create(username: user, name: user.capitalize, password: user, picture: File.open(file_path))
+    file_path = File.join(Rails.root, "db/seed_pictures", "#{user}.jpg")
+    User.create(username: "#{user}#{i}", name: user.capitalize + " #{i}", password: user, picture: File.open(file_path))
+  end
 end
-
-if use_clean_band_names
+if USE_CLEAN_BAND_NAMES
   bands = [
     "Fear Is the Path to the Dark Side", # Source: http://rateyourmusic.com/list/monocle/band_names_that_are_ridiculously_long/
     "My Life With the Thrill Kill Kult",
@@ -61,7 +63,7 @@ if use_clean_band_names
     "The Brady Bunch Lawnmower Massacre",
     "Seagull Screaming Kiss Her Kiss Her",
     "Dr. Buzzard's Original Savannah Band",
-    "Dr. West's Medicine Show &amp; Junk Band",
+    "Dr. West's Medicine Show & Junk Band",
     "The Mystic Astrologic Crystal Band",
     "Medicine Park All Boy Derelict Band",
     "Meanwhile Back in Communist Russia",
@@ -115,7 +117,7 @@ if use_clean_band_names
     "Paracoccidioidomicosisproctitissarcomucosis",
     "Congratulations on Your Decision to Become a Pilot",
     "Composition of the Sensibilities of Melted Knowledge",
-    "The Spectral Light &amp; Moonshine Firefly Snakeoil Jamboree",
+    "The Spectral Light & Moonshine Firefly Snakeoil Jamboree",
     "The Powers of Darkness Shall Rain Blood Upon This City for 500 Years",
     "The Rock and Roll Dubble Bubble Trading Card Co. of Philadelphia 1941",
     "Gotye", # Source: http://www.elyrics.net/top/1.php
@@ -1185,7 +1187,7 @@ bands.each do |band_name|
   band.save
 end
 
-number_ratings_to_seed = use_clean_band_names ? 30 : 100
+number_ratings_to_seed = USE_CLEAN_BAND_NAMES ? 30 : 100
 puts "Initializing #{number_ratings_to_seed}-ish random ratings for each user"
 unless Rating.any?
   User.all.each do |user|
