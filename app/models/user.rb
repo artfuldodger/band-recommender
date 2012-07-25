@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
   has_many :ratings, include: :band
   has_many :bands, through: :ratings
   has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" }
+
+  def all_other_users
+    User.where('id != ?', id)
+  end
 end

@@ -9,7 +9,7 @@ class Recommender
   def recommendations
     totals = Hash.new(0)
     similarity_sums = Hash.new(0)
-    all_other_users.each do |other_user|
+    @user.all_other_users.each do |other_user|
       sim = @similarity_calculator.similarity(other_user)
       next if sim <= 0
       other_user.ratings.where('band_id not in (?)', rated_band_ids).each do |other_user_rating|
@@ -21,10 +21,6 @@ class Recommender
     rankings = {}
     totals.each { |band, total| rankings[band] = (total / similarity_sums[band]) }
     rankings.sort_by { |band, score| -score }[0..20]
-  end
-
-  def all_other_users
-    User.where('id != ?', @user.id)
   end
 
   def rated_band_ids
