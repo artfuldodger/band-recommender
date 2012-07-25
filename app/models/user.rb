@@ -11,6 +11,6 @@ class User < ActiveRecord::Base
   has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" }
 
   def all_other_users
-    User.where('id != ?', id)
+    self.class.where('id != ?', id)
   end
 end
